@@ -38,6 +38,7 @@ function saveSettings(theme, colors, backgroundImage) {
     colors,
     backgroundImage
   };
+
   localStorage.setItem("quoteAppSettings", JSON.stringify(settings));
   alert("Settings applied! Go back to see the changes.");
 }

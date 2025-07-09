@@ -82,3 +82,54 @@ body {
   margin-bottom: 10px;
   padding: 5px;
 }
+#settings-container {
+  max-width: 700px;
+  margin: 60px auto;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 12px;
+  padding: 40px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+#settings-container h1 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 2rem;
+  color: #4b0082;
+}
+
+#settings-container section {
+  margin-bottom: 30px;
+}
+
+#settings-container label {
+  display: block;
+  font-weight: 600;
+  margin: 8px 0 5px;
+}
+
+#settings-container input[type="color"],
+#settings-container select,
+#settings-container input[type="file"] {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+#settings-container button {
+  padding: 10px 20px;
+  margin-right: 10px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  background-color: #a64ac9;
+  color: white;
+  transition: background-color 0.3s;
+}
+
+#settings-container button:hover {
+  background-color: #8e3bbf;
+}

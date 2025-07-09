@@ -7,20 +7,22 @@
   <link rel="stylesheet" href="styles/main.css" />
   <link rel="stylesheet" href="styles/themes.css" />
   <style>
-    :root {
-      --custom-bg-color: transparent;
-      --custom-text-color: white;
-      --custom-button-color: #4CAF50;
+        :root {
+    --custom-bg-color: transparent;
+    --custom-text-color: #111;
+    --custom-button-color: #4CAF50;
     }
 
     body.custom {
-      background-color: var(--custom-bg-color) !important;
-      color: var(--custom-text-color);
+    background-color: var(--custom-bg-color) !important;
+    color: var(--custom-text-color);
     }
 
     #controls button {
-      background-color: var(--custom-button-color);
+    background-color: var(--custom-button-color);
+    color: white;
     }
+
   </style>
 </head>
 <body>
@@ -52,13 +54,13 @@
       }
 
       // Apply custom colors
-      if (settings.colors) {
-        document.body.classList.add("custom");
-        document.documentElement.style.setProperty('--custom-bg-color', settings.colors.bgColor);
-        document.documentElement.style.setProperty('--custom-text-color', settings.colors.textColor);
-        document.documentElement.style.setProperty('--custom-button-color', settings.colors.buttonColor);
+if (settings.colors) {
+  document.body.classList.add("custom");
+  document.documentElement.style.setProperty('--custom-bg-color', settings.colors.bgColor);
+  document.documentElement.style.setProperty('--custom-text-color', settings.colors.textColor);
+  document.documentElement.style.setProperty('--custom-button-color', settings.colors.buttonColor);
+}
       }
-    }
   </script>
 </body>
 </html>
