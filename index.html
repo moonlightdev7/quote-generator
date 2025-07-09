@@ -49,8 +49,9 @@
       document.body.style.backgroundRepeat = "no-repeat";
 
       if (settings.theme && settings.theme !== "default") {
+        document.body.className = ''; // clear any existing classes
         document.body.classList.add(settings.theme);
-      }
+        }
 
       if (settings.colors) {
         document.body.classList.add("custom");
@@ -58,6 +59,10 @@
         document.documentElement.style.setProperty('--custom-text-color', settings.colors.textColor);
         document.documentElement.style.setProperty('--custom-button-color', settings.colors.buttonColor);
       }
+
+      if (!settings.backgroundImage) {
+        document.body.style.backgroundImage = "url('assets/backgrounds/Starry Night.jpg')";
+        }
     }
   </script>
 </body>

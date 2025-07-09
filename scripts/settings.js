@@ -17,7 +17,7 @@ applyBtn.addEventListener("click", () => {
     reader.readAsDataURL(file);
   } else {
     const selected = document.getElementById("default-bg").value;
-    saveSettings(theme, colors, `assets/backgrounds/${selected}.jpg`);
+saveSettings(theme, colors, `assets/backgrounds/${selected}.jpg`);
   }
 });
 
