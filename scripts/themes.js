@@ -25,3 +25,18 @@ window.addEventListener("DOMContentLoaded", () => {
     if (buttonColor) buttonColor.value = settings.colors.buttonColor;
   }
 });
+const themeSelect = document.getElementById("theme-select");
+const customColorSection = document.getElementById("custom-color-section");
+
+function toggleCustomColors() {
+  if (themeSelect.value === "custom") {
+    customColorSection.style.display = "block";
+  } else {
+    customColorSection.style.display = "none";
+  }
+}
+
+if (themeSelect && customColorSection) {
+  toggleCustomColors(); // Set on page load
+  themeSelect.addEventListener("change", toggleCustomColors); // React to changes
+}
