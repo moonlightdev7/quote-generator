@@ -60,12 +60,12 @@
             document.body.classList.add(settings.theme);
         }
 
-        if (settings.colors) {
+        if (settings.colors && settings.theme === "custom") {
             document.body.classList.add("custom");
             document.documentElement.style.setProperty('--custom-bg-color', settings.colors.bgColor);
             document.documentElement.style.setProperty('--custom-text-color', settings.colors.textColor);
             document.documentElement.style.setProperty('--custom-button-color', settings.colors.buttonColor);
-        }
+            }
         }
     
   </script>

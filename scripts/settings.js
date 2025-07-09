@@ -27,7 +27,12 @@ applyBtn.addEventListener("click", () => {
 });
 
 function saveSettings(theme, colors, backgroundImage) {
-  const settings = { theme, colors, backgroundImage };
+  const settings = {
+    theme,
+    colors: theme === "custom" ? colors : null,
+    backgroundImage
+  };
+
   localStorage.setItem("quoteAppSettings", JSON.stringify(settings));
   alert("Settings applied!");
 }
