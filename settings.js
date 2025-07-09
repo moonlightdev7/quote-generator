@@ -1,25 +1,15 @@
 // settings.js
-const uploadInput = document.getElementById("bg-upload");
 const styleSelect = document.getElementById("bg-style");
-const resetBtn = document.getElementById("reset-settings");
 
-uploadInput.addEventListener("change", (e) => {
-  const file = e.target.files[0];
-  if (!file) return;
+styleSelect.addEventListener("change", function () {
+  const selected = this.value;
 
-  const reader = new FileReader();
-  reader.onload = function (event) {
-    localStorage.setItem("customBackground", event.target.result);
-  };
-  reader.readAsDataURL(file);
-});
-
-styleSelect.addEventListener("change", () => {
-  localStorage.setItem("bgStyle", styleSelect.value);
-});
-
-resetBtn.addEventListener("click", () => {
-  localStorage.removeItem("customBackground");
-  localStorage.removeItem("bgStyle");
-  alert("Settings reset!");
+  if (selected === "default") {
+    document.body.style.backgroundImage = "";
+    document.body.classList.remove("custom-bg");
+  } else {
+    const imagePath = `images/${selected}.jpg`; // make sure the name matches the dropdown value
+    document.body.style.backgroundImage = `url('${imagePath}')`;
+    document.body.classList.add("custom-bg");
+  }
 });
