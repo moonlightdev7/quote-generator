@@ -2,15 +2,26 @@ window.addEventListener("DOMContentLoaded", () => {
   const settings = JSON.parse(localStorage.getItem("quoteAppSettings"));
   if (!settings) return;
 
-  if (settings.theme) {
-    document.body.className = settings.theme;
-    const select = document.getElementById("theme-select");
-    if (select) select.value = settings.theme;
+  const themeSelect = document.getElementById("theme-select");
+  const bgColor = document.getElementById("bg-color");
+  const textColor = document.getElementById("text-color");
+  const buttonColor = document.getElementById("button-color");
+
+  // Apply theme class visually
+  document.body.classList.remove(...document.body.classList);
+  if (settings.theme && settings.theme !== "default") {
+    document.body.classList.add(settings.theme);
   }
 
-  if (settings.colors) {
-    document.getElementById("bg-color").value = settings.colors.bgColor;
-    document.getElementById("text-color").value = settings.colors.textColor;
-    document.getElementById("button-color").value = settings.colors.buttonColor;
+  // Set dropdown to selected theme
+  if (themeSelect && settings.theme) {
+    themeSelect.value = settings.theme;
+  }
+
+  // Only load custom colors if theme is 'custom'
+  if (settings.colors && settings.theme === "custom") {
+    if (bgColor) bgColor.value = settings.colors.bgColor;
+    if (textColor) textColor.value = settings.colors.textColor;
+    if (buttonColor) buttonColor.value = settings.colors.buttonColor;
   }
 });
