@@ -235,4 +235,24 @@ body {
     margin-left: 10px;
     transform: scale(1.2);
   }
+  @media (max-width: 480px) {
+    .container {
+      padding: 1rem;
+    }
+  
+    .quote-box {
+      font-size: 1rem;
+      padding: 1rem;
+    }
+  
+    button {
+      width: 100%;
+      font-size: 1rem;
+      margin: 8px 0;
+    }
+  
+    select {
+      width: 100%;
+    }
+  }
   
