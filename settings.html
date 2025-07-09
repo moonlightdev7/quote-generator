@@ -1,0 +1,31 @@
+<!-- settings.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Settings</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Customize Your Experience ✨</h1>
+
+    <label for="bg-upload">Upload Background:</label>
+    <input type="file" id="bg-upload" accept="image/*" />
+
+    <label for="bg-style">Choose a background style:</label>
+    <select id="bg-style">
+      <option value="default">Default</option>
+      <option value="stars">Starry Night</option>
+      <option value="bokeh">Soft Bokeh</option>
+      <option value="gradient">Gradient Glow</option>
+    </select>
+
+    <button id="reset-settings">Reset to Default</button>
+    <a href="index.html">← Back to Quotes</a>
+  </div>
+
+  <script src="settings.js"></script>
+</body>
+</html>

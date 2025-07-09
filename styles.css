@@ -260,4 +260,9 @@ body {
       margin-bottom: 5px;
     }
   }  
+  body.custom-bg {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
   
