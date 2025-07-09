@@ -152,3 +152,13 @@ function startDailyQuoteReminder() {
     }
   }, 60000); // check every minute
 }
+// Load custom background if saved
+const savedBg = localStorage.getItem('customBackground');
+if (savedBg) {
+  document.body.classList.add('custom-bg');
+  if (savedBg.startsWith('data:image')) {
+    document.body.style.backgroundImage = `url(${savedBg})`;
+  } else {
+    document.body.style.backgroundImage = `url(${savedBg})`;
+  }
+}

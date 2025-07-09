@@ -37,15 +37,5 @@
       <small>Keep tab open to receive daily quotes 💬</small>      
   </div>
   <script src="script.js"></script>
-    // Apply custom background
-    const savedBg = localStorage.getItem('customBackground');
-    if (savedBg) {
-    document.body.classList.add('custom-bg');
-    if (savedBg.startsWith('data:image')) {
-        document.body.style.backgroundImage = `url(${savedBg})`;
-    } else {
-        document.body.style.backgroundImage = `url(${savedBg})`;
-    }
-    }
 </body>
 </html>
