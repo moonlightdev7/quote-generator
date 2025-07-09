@@ -8,19 +8,17 @@
   <link rel="stylesheet" href="styles/themes.css" />
   <style>
     :root {
-      --custom-bg-color: transparent;
-      --custom-text-color: white;
-      --custom-button-color: #a64ac9;
+      --bg-color: white;
+      --text-color: black;
+      --button-color: #6200ee;
+      --quote-bg: rgba(0, 0, 0, 0.6);
     }
 
     body.custom {
-      background-color: var(--custom-bg-color) !important;
-      color: var(--custom-text-color);
-    }
-
-    #controls button {
-      background-color: var(--custom-button-color);
-      color: white;
+      --bg-color: var(--custom-bg-color);
+      --text-color: var(--custom-text-color);
+      --button-color: var(--custom-button-color);
+      --quote-bg: var(--custom-quote-bg, rgba(0, 0, 0, 0.6));
     }
   </style>
 </head>
@@ -42,32 +40,30 @@
   <script src="scripts/app.js"></script>
   <script>
     const settings = JSON.parse(localStorage.getItem("quoteAppSettings"));
-        if (settings) {
-            // Apply background image
-            if (settings.backgroundImage) {
-                document.body.style.backgroundImage = `url('${settings.backgroundImage}')`;
-            } else {
-                document.body.style.backgroundImage = "none";
-            }
-            document.body.style.backgroundSize = "cover";
-            document.body.style.backgroundPosition = "center";
-            document.body.style.backgroundRepeat = "no-repeat";
+    if (settings) {
+      // Background image
+      document.body.style.backgroundImage = settings.backgroundImage
+        ? `url('${settings.backgroundImage}')`
+        : "none";
+      document.body.style.backgroundSize = "cover";
+      document.body.style.backgroundPosition = "center";
+      document.body.style.backgroundRepeat = "no-repeat";
 
-            // Remove all previous classes before applying theme
-            document.body.className = '';
-            
-        if (settings.theme && settings.theme !== "default") {
-            document.body.classList.add(settings.theme);
-        }
+      // Clear all classes, then apply theme
+      document.body.className = "";
+      if (settings.theme && settings.theme !== "default") {
+        document.body.classList.add(settings.theme);
+      }
 
-        if (settings.colors && settings.theme === "custom") {
-            document.body.classList.add("custom");
-            document.documentElement.style.setProperty('--custom-bg-color', settings.colors.bgColor);
-            document.documentElement.style.setProperty('--custom-text-color', settings.colors.textColor);
-            document.documentElement.style.setProperty('--custom-button-color', settings.colors.buttonColor);
-            }
-        }
-    
+      // Apply custom variables only for custom theme
+      if (settings.colors && settings.theme === "custom") {
+        document.body.classList.add("custom");
+        document.documentElement.style.setProperty("--custom-bg-color", settings.colors.bgColor);
+        document.documentElement.style.setProperty("--custom-text-color", settings.colors.textColor);
+        document.documentElement.style.setProperty("--custom-button-color", settings.colors.buttonColor);
+        document.documentElement.style.setProperty("--custom-quote-bg", "rgba(0, 0, 0, 0.6)");
+      }
+    }
   </script>
 </body>
 </html>

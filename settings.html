@@ -6,33 +6,57 @@
   <title>Customize Theme</title>
   <link rel="stylesheet" href="styles/main.css" />
   <link rel="stylesheet" href="styles/themes.css" />
+  <style>
+    :root {
+      --bg-color: white;
+      --text-color: black;
+      --button-color: #6200ee;
+      --quote-bg: rgba(0, 0, 0, 0.6);
+    }
+
+    body.custom {
+      --bg-color: var(--custom-bg-color);
+      --text-color: var(--custom-text-color);
+      --button-color: var(--custom-button-color);
+      --quote-bg: var(--custom-quote-bg, rgba(0, 0, 0, 0.6));
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+    }
+
+    #settings-container button {
+      background-color: var(--button-color);
+      color: white;
+    }
+  </style>
 </head>
 <body>
   <div id="settings-container">
     <h1>Customize Your Theme</h1>
 
     <section>
-  <label for="theme-select">Preset Theme:</label>
-  <select id="theme-select">
-    <option value="default">Default</option>
-    <option value="soft-girlie">Soft Girlie</option>
-    <option value="midnight-black">Midnight Black</option>
-    <option value="lavender-dreams">Lavender Dreams</option>
-    <option value="mint-cream">Mint Cream</option>
-    <option value="peachy-vibes">Peachy Vibes</option>
-    <option value="sky-blue-bliss">Sky Blue Bliss</option>
-    <option value="rose-quartz">Rose Quartz</option>
-    <option value="ocean-deep">Ocean Deep</option>
-    <option value="vanilla-cream">Vanilla Cream</option>
-    <option value="blush-pink">Blush Pink</option>
-    <option value="lemon-sorbet">Lemon Sorbet</option>
-    <option value="dusty-rose">Dusty Rose</option>
-    <option value="cool-grey">Cool Grey</option>
-    <option value="mauve-magic">Mauve Magic</option>
-    <option value="custom">Custom</option>
-  </select>
-</section>
-
+      <label for="theme-select">Preset Theme:</label>
+      <select id="theme-select">
+        <option value="default">Default</option>
+        <option value="soft-girlie">Soft Girlie</option>
+        <option value="midnight-black">Midnight Black</option>
+        <option value="lavender-dreams">Lavender Dreams</option>
+        <option value="mint-cream">Mint Cream</option>
+        <option value="peachy-vibes">Peachy Vibes</option>
+        <option value="sky-blue-bliss">Sky Blue Bliss</option>
+        <option value="rose-quartz">Rose Quartz</option>
+        <option value="ocean-deep">Ocean Deep</option>
+        <option value="vanilla-cream">Vanilla Cream</option>
+        <option value="blush-pink">Blush Pink</option>
+        <option value="lemon-sorbet">Lemon Sorbet</option>
+        <option value="dusty-rose">Dusty Rose</option>
+        <option value="cool-grey">Cool Grey</option>
+        <option value="mauve-magic">Mauve Magic</option>
+        <option value="custom">Custom</option>
+      </select>
+    </section>
 
     <section>
       <label for="bg-color">Background Color:</label>
@@ -50,11 +74,11 @@
       <input type="file" id="bg-upload" accept="image/*" />
 
       <label for="default-bg">Or use a default background:</label>
-    <select id="default-bg">
+      <select id="default-bg">
         <option value="none">None</option>
         <option value="Starry Night">Starry Night</option>
         <option value="Soft Bokeh">Soft Bokeh</option>
-    </select>
+      </select>
     </section>
 
     <button id="apply-btn">Apply Settings</button>
