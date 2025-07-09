@@ -16,8 +16,13 @@ applyBtn.addEventListener("click", () => {
     };
     reader.readAsDataURL(file);
   } else {
-    const selected = document.getElementById("default-bg").value;
-saveSettings(theme, colors, `assets/backgrounds/${selected}.jpg`);
+   const selected = document.getElementById("default-bg").value;
+
+    if (selected === "none") {
+        saveSettings(theme, colors, "");
+    } else {
+       saveSettings(theme, colors, `assets/backgrounds/${selected}.jpg`);
+}
   }
 });
 
@@ -29,7 +34,8 @@ function saveSettings(theme, colors, backgroundImage) {
 const resetBtn = document.getElementById("reset-btn");
 
 resetBtn.addEventListener("click", () => {
-  localStorage.removeItem("quoteAppSettings");
+localStorage.removeItem("quoteAppSettings");
+document.body.style.backgroundImage = "none";
   alert("Settings reset to default.");
   window.location.reload();
 });

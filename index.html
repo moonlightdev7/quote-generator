@@ -44,7 +44,11 @@
     const settings = JSON.parse(localStorage.getItem("quoteAppSettings"));
         if (settings) {
             // Apply background image
-            document.body.style.backgroundImage = `url('${settings.backgroundImage}')`;
+            if (settings.backgroundImage) {
+                document.body.style.backgroundImage = `url('${settings.backgroundImage}')`;
+            } else {
+                document.body.style.backgroundImage = "none";
+            }
             document.body.style.backgroundSize = "cover";
             document.body.style.backgroundPosition = "center";
             document.body.style.backgroundRepeat = "no-repeat";
