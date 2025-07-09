@@ -59,3 +59,26 @@ body {
 #controls button:hover {
   opacity: 0.9;
 }
+#settings-container {
+  padding: 40px;
+  max-width: 600px;
+  margin: auto;
+}
+
+#settings-container section {
+  margin-bottom: 30px;
+}
+
+#settings-container label,
+#settings-container h2 {
+  display: block;
+  margin: 10px 0 5px;
+  font-weight: bold;
+}
+
+#settings-container select,
+#settings-container input[type='color'],
+#settings-container input[type='file'] {
+  margin-bottom: 10px;
+  padding: 5px;
+}
