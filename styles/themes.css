@@ -8,4 +8,64 @@ body.midnight-black {
   color: #ffffff;
 }
 
+body.lavender-dreams {
+  background-color: #e6e6fa;
+  color: #4b0082;
+}
+
+body.mint-cream {
+  background-color: #f5fffa;
+  color: #2e8b57;
+}
+
+body.peachy-vibes {
+  background-color: #ffe5b4;
+  color: #cc5500;
+}
+
+body.sky-blue-bliss {
+  background-color: #e0f7fa;
+  color: #0288d1;
+}
+
+body.rose-quartz {
+  background-color: #f8bbd0;
+  color: #880e4f;
+}
+
+body.ocean-deep {
+  background-color: #003366;
+  color: #ffffff;
+}
+
+body.vanilla-cream {
+  background-color: #fdf5e6;
+  color: #8b4513;
+}
+
+body.blush-pink {
+  background-color: #ffe4e1;
+  color: #b03060;
+}
+
+body.lemon-sorbet {
+  background-color: #fffacd;
+  color: #bdb76b;
+}
+
+body.dusty-rose {
+  background-color: #e6c5c5;
+  color: #5a2a2a;
+}
+
+body.cool-grey {
+  background-color: #d3d3d3;
+  color: #2f4f4f;
+}
+
+body.mauve-magic {
+  background-color: #e0b0ff;
+  color: #4b0082;
+}
+
 /* Add more themes if needed */
