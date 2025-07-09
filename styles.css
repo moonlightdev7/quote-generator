@@ -274,7 +274,8 @@ body {
   }  
   body.custom-bg {
     background-size: cover;
-    background-repeat: no-repeat;
     background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* Optional for parallax-like effect */
   }
   
