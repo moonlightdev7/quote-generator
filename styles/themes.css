@@ -1,71 +1,97 @@
 body.soft-girlie {
-  background-color: #ffe6f0;
-  color: #6b184e;
+  --bg-color: #ffe6f0;
+  --text-color: #6b184e;
+  --button-color: #ffb6c1;
+  --quote-bg: rgba(255, 192, 203, 0.5);
 }
 
 body.midnight-black {
-  background-color: #000000;
-  color: #ffffff;
+  --bg-color: #000000;
+  --text-color: #ffffff;
+  --button-color: #333333;
+  --quote-bg: rgba(255, 255, 255, 0.1);
 }
 
 body.lavender-dreams {
-  background-color: #e6e6fa;
-  color: #4b0082;
+  --bg-color: #e6e6fa;
+  --text-color: #4b0082;
+  --button-color: #dda0dd;
+  --quote-bg: rgba(230, 230, 250, 0.5);
 }
 
 body.mint-cream {
-  background-color: #f5fffa;
-  color: #2e8b57;
+  --bg-color: #f5fffa;
+  --text-color: #2e8b57;
+  --button-color: #98fb98;
+  --quote-bg: rgba(245, 255, 250, 0.6);
 }
 
 body.peachy-vibes {
-  background-color: #ffe5b4;
-  color: #cc5500;
+  --bg-color: #ffe5b4;
+  --text-color: #cc5500;
+  --button-color: #ffd8a8;
+  --quote-bg: rgba(255, 229, 180, 0.6);
 }
 
 body.sky-blue-bliss {
-  background-color: #e0f7fa;
-  color: #0288d1;
+  --bg-color: #e0f7fa;
+  --text-color: #0288d1;
+  --button-color: #b3e5fc;
+  --quote-bg: rgba(224, 247, 250, 0.5);
 }
 
 body.rose-quartz {
-  background-color: #f8bbd0;
-  color: #880e4f;
+  --bg-color: #f8bbd0;
+  --text-color: #880e4f;
+  --button-color: #f48fb1;
+  --quote-bg: rgba(248, 187, 208, 0.5);
 }
 
 body.ocean-deep {
-  background-color: #003366;
-  color: #ffffff;
+  --bg-color: #003366;
+  --text-color: #ffffff;
+  --button-color: #3399ff;
+  --quote-bg: rgba(0, 51, 102, 0.5);
 }
 
 body.vanilla-cream {
-  background-color: #fdf5e6;
-  color: #8b4513;
+  --bg-color: #fdf5e6;
+  --text-color: #8b4513;
+  --button-color: #ffebcd;
+  --quote-bg: rgba(253, 245, 230, 0.6);
 }
 
 body.blush-pink {
-  background-color: #ffe4e1;
-  color: #b03060;
+  --bg-color: #ffe4e1;
+  --text-color: #b03060;
+  --button-color: #ffc0cb;
+  --quote-bg: rgba(255, 228, 225, 0.5);
 }
 
 body.lemon-sorbet {
-  background-color: #fffacd;
-  color: #bdb76b;
+  --bg-color: #fffacd;
+  --text-color: #bdb76b;
+  --button-color: #fff44f;
+  --quote-bg: rgba(255, 250, 205, 0.5);
 }
 
 body.dusty-rose {
-  background-color: #e6c5c5;
-  color: #5a2a2a;
+  --bg-color: #e6c5c5;
+  --text-color: #5a2a2a;
+  --button-color: #deb0b0;
+  --quote-bg: rgba(230, 197, 197, 0.5);
 }
 
 body.cool-grey {
-  background-color: #d3d3d3;
-  color: #2f4f4f;
+  --bg-color: #d3d3d3;
+  --text-color: #2f4f4f;
+  --button-color: #a9a9a9;
+  --quote-bg: rgba(211, 211, 211, 0.5);
 }
 
 body.mauve-magic {
-  background-color: #e0b0ff;
-  color: #4b0082;
+  --bg-color: #e0b0ff;
+  --text-color: #4b0082;
+  --button-color: #dda0dd;
+  --quote-bg: rgba(224, 176, 255, 0.5);
 }
-
-/* Add more themes if needed */
