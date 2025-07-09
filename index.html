@@ -1,57 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Motivational Quote Generator</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles/main.css" />
+  <link rel="stylesheet" href="styles/themes.css" />
+  <style>
+    :root {
+      --custom-bg-color: transparent;
+      --custom-text-color: white;
+      --custom-button-color: #4CAF50;
+    }
+
+    body.custom {
+      background-color: var(--custom-bg-color) !important;
+      color: var(--custom-text-color);
+    }
+
+    #controls button {
+      background-color: var(--custom-button-color);
+    }
+  </style>
 </head>
 <body>
-  <div class="container">
-    <h1>🌙 Your Daily Dose of Motivation</h1>
-    <div class="quote-box">
-      <p id="quote">Click the button for a quote</p>
+  <div id="app">
+    <div id="quote-container">
+      <p id="quote">Click the button to generate a quote!</p>
     </div>
-    <button id="new-quote">Inspire Me</button>
-    <button id="copy-quote">Copy Quote</button>
-    <a href="settings.html" id="settings-btn">⚙️ Settings</a>
-    <div class="theme-selector">
-        <label for="theme">Choose Theme:</label>
-        <select id="theme">
-          <option value="moonlight">Moonlight Vibes</option>
-          <option value="dark">Dark Mode</option>
-          <option value="soft">Soft Girlie</option>
-          <option value="black">Midnight Black</option>
-          <option value="sunrise">Sunrise Serenity</option>
-          <option value="forest">Forest Calm</option>
-          <option value="lavender">Lavender Mist</option>
-          <option value="neon">Cyber Neon</option>
-          <option value="sand">Sand & Sky</option>
-          <option value="cream">Minimal Cream</option>
-        </select>
-      </div>
-      <button id="surprise-theme">Surprise Me!</button>      
-      <div class="reminder-toggle">
-        <label for="daily-reminder">Daily Reminder:</label>
-        <input type="checkbox" id="daily-reminder">
-      </div>
-      <small>Keep tab open to receive daily quotes 💬</small>      
+    <div id="controls">
+      <button id="generate-btn">Generate</button>
+        <img src="assets/icons/purple-heart.svg" alt="💜" width="18" />
+         Generate
+      </button>
+
+      <button id="copy-btn">Copy Quote</button>
+      <button id="settings-btn" onclick="location.href='settings.html'">Settings</button>
+    </div>
   </div>
-  <script src="script.js"></script>
+
+  <script src="scripts/app.js"></script>
   <script>
-    const bgMap = {
-      default: "",
-      stars: "Starry Night.jpg",
-      bokeh: "Soft Bokeh.jpg",
-    };
-  
-    const apply = localStorage.getItem("apply-bg");
-    const selected = localStorage.getItem("selected-bg");
-  
-    if (apply === "true" && selected && bgMap[selected]) {
-      document.body.style.backgroundImage = `url('images/${bgMap[selected]}')`;
-      document.body.classList.add("custom-bg");
+    // Load saved settings from localStorage
+    const settings = JSON.parse(localStorage.getItem("quoteAppSettings"));
+    if (settings) {
+      // Apply background
+      document.body.style.backgroundImage = `url('${settings.backgroundImage}')`;
+      document.body.style.backgroundSize = "cover";
+      document.body.style.backgroundPosition = "center";
+      document.body.style.backgroundRepeat = "no-repeat";
+
+      // Apply theme class if exists
+      if (settings.theme && settings.theme !== "default") {
+        document.body.classList.add(settings.theme);
+      }
+
+      // Apply custom colors
+      if (settings.colors) {
+        document.body.classList.add("custom");
+        document.documentElement.style.setProperty('--custom-bg-color', settings.colors.bgColor);
+        document.documentElement.style.setProperty('--custom-text-color', settings.colors.textColor);
+        document.documentElement.style.setProperty('--custom-button-color', settings.colors.buttonColor);
+      }
     }
-  </script>  
+  </script>
 </body>
 </html>

@@ -1,32 +1,54 @@
-<!-- settings.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Settings</title>
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="styles/main.css" />
+  <link rel="stylesheet" href="styles/themes.css" />
 </head>
 <body>
-  <div class="container">
-    <h1>Customize Your Experience ✨</h1>
+  <div id="settings-container">
+    <h1>Customize Your Theme</h1>
 
-    <label for="bg-upload">Upload Background:</label>
-    <input type="file" id="bg-upload" accept="image/*" />
+    <section>
+      <label for="theme-select">Select a preset theme:</label>
+      <select id="theme-select">
+        <option value="default">Default</option>
+        <option value="soft-girlie">Soft Girlie</option>
+        <option value="midnight-black">Midnight Black</option>
+        <!-- More theme options will be added later -->
+      </select>
+    </section>
 
-    <label for="bg-style">Choose a background style:</label>
-<select id="bg-style">
-  <option value="default">Default</option>
-  <option value="stars">Starry Night</option>
-  <option value="bokeh">Soft Bokeh</option>
-</select>
+    <section>
+      <h2>Custom Colors</h2>
+      <label for="bg-color">Background Color:</label>
+      <input type="color" id="bg-color">
 
-<button id="apply-bg">Apply Background</button>
+      <label for="text-color">Text Color:</label>
+      <input type="color" id="text-color">
 
-    <button id="reset-settings">Reset to Default</button>
-    <a href="index.html">← Back to Quotes</a>
+      <label for="button-color">Button Color:</label>
+      <input type="color" id="button-color">
+    </section>
+
+    <section>
+      <h2>Background Image</h2>
+      <label for="bg-upload">Upload your own image or gif:</label>
+      <input type="file" id="bg-upload" accept="image/*,image/gif">
+
+      <label for="default-bg">Or choose a default:</label>
+      <select id="default-bg">
+        <option value="starry-night">Starry Night</option>
+        <option value="soft-bokeh">Soft Bokeh</option>
+      </select>
+    </section>
+
+    <button id="apply-btn">Apply Settings</button>
+    <button onclick="location.href='index.html'">Back to Generator</button>
   </div>
 
-  <script src="settings.js"></script>
+  <script src="scripts/settings.js"></script>
 </body>
 </html>
