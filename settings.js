@@ -1,5 +1,10 @@
-// settings.js
 const styleSelect = document.getElementById("bg-style");
+
+const bgMap = {
+  default: "",
+  stars: "Starry Night.jpg",
+  bokeh: "Soft Bokeh.jpg",
+};
 
 styleSelect.addEventListener("change", function () {
   const selected = this.value;
@@ -8,8 +13,11 @@ styleSelect.addEventListener("change", function () {
     document.body.style.backgroundImage = "";
     document.body.classList.remove("custom-bg");
   } else {
-    const imagePath = `images/${selected}.jpg`; // make sure the name matches the dropdown value
-    document.body.style.backgroundImage = `url('${imagePath}')`;
-    document.body.classList.add("custom-bg");
+    const filename = bgMap[selected];
+    if (filename) {
+      const imagePath = `images/${filename}`;
+      document.body.style.backgroundImage = `url('${imagePath}')`;
+      document.body.classList.add("custom-bg");
+    }
   }
 });

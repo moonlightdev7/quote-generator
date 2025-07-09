@@ -42,16 +42,18 @@ body {
   }
   
   #settings-btn {
-    background-color: #4b5563;
-    color: white;
+    display: inline-block;
     padding: 10px 20px;
-    margin: 10px auto;
+    background-color: #444;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
     border: none;
-    border-radius: 8px;
-    font-weight: bold;
     cursor: pointer;
-    display: block;
   }
+  #settings-btn:hover {
+    background-color: #666;
+  }  
   
   button:hover {
     opacity: 0.9;
@@ -277,5 +279,14 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed; /* Optional for parallax-like effect */
+  }
+  #bg-preview {
+    width: 100%;
+    height: 150px;
+    background-size: cover;
+    background-position: center;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin-top: 15px;
   }
   
