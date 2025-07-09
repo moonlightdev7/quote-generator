@@ -26,3 +26,10 @@ function saveSettings(theme, colors, backgroundImage) {
   localStorage.setItem("quoteAppSettings", JSON.stringify(settings));
   alert("Settings applied!");
 }
+const resetBtn = document.getElementById("reset-btn");
+
+resetBtn.addEventListener("click", () => {
+  localStorage.removeItem("quoteAppSettings");
+  alert("Settings reset to default.");
+  window.location.reload();
+});

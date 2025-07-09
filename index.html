@@ -42,28 +42,28 @@
   <script src="scripts/app.js"></script>
   <script>
     const settings = JSON.parse(localStorage.getItem("quoteAppSettings"));
-    if (settings) {
-      document.body.style.backgroundImage = `url('${settings.backgroundImage}')`;
-      document.body.style.backgroundSize = "cover";
-      document.body.style.backgroundPosition = "center";
-      document.body.style.backgroundRepeat = "no-repeat";
+        if (settings) {
+            // Apply background image
+            document.body.style.backgroundImage = `url('${settings.backgroundImage}')`;
+            document.body.style.backgroundSize = "cover";
+            document.body.style.backgroundPosition = "center";
+            document.body.style.backgroundRepeat = "no-repeat";
 
-      if (settings.theme && settings.theme !== "default") {
-        document.body.className = ''; // clear any existing classes
-        document.body.classList.add(settings.theme);
+            // Remove all previous classes before applying theme
+            document.body.className = '';
+            
+        if (settings.theme && settings.theme !== "default") {
+            document.body.classList.add(settings.theme);
         }
 
-      if (settings.colors) {
-        document.body.classList.add("custom");
-        document.documentElement.style.setProperty('--custom-bg-color', settings.colors.bgColor);
-        document.documentElement.style.setProperty('--custom-text-color', settings.colors.textColor);
-        document.documentElement.style.setProperty('--custom-button-color', settings.colors.buttonColor);
-      }
-
-      if (!settings.backgroundImage) {
-        document.body.style.backgroundImage = "url('assets/backgrounds/Starry Night.jpg')";
+        if (settings.colors) {
+            document.body.classList.add("custom");
+            document.documentElement.style.setProperty('--custom-bg-color', settings.colors.bgColor);
+            document.documentElement.style.setProperty('--custom-text-color', settings.colors.textColor);
+            document.documentElement.style.setProperty('--custom-button-color', settings.colors.buttonColor);
         }
-    }
+        }
+    
   </script>
 </body>
 </html>
