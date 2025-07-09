@@ -38,5 +38,20 @@
       <small>Keep tab open to receive daily quotes 💬</small>      
   </div>
   <script src="script.js"></script>
+  <script>
+    const bgMap = {
+      default: "",
+      stars: "Starry Night.jpg",
+      bokeh: "Soft Bokeh.jpg",
+    };
+  
+    const apply = localStorage.getItem("apply-bg");
+    const selected = localStorage.getItem("selected-bg");
+  
+    if (apply === "true" && selected && bgMap[selected]) {
+      document.body.style.backgroundImage = `url('images/${bgMap[selected]}')`;
+      document.body.classList.add("custom-bg");
+    }
+  </script>  
 </body>
 </html>
