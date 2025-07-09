@@ -1,20 +1,28 @@
 window.addEventListener("DOMContentLoaded", () => {
   const settings = JSON.parse(localStorage.getItem("quoteAppSettings"));
   const themeSelect = document.getElementById("theme-select");
+  const bgColor = document.getElementById("bg-color");
+  const textColor = document.getElementById("text-color");
+  const buttonColor = document.getElementById("button-color");
   const customColorSection = document.getElementById("custom-color-section");
 
-  // Apply previous theme selection
+  // Apply saved theme class
   if (settings?.theme && themeSelect) {
     themeSelect.value = settings.theme;
+    document.body.classList.remove(...document.body.classList);
+    if (settings.theme !== "default") {
+      document.body.classList.add(settings.theme);
+    }
   }
 
+  // Apply saved custom colors
   if (settings?.colors && settings.theme === "custom") {
-    document.getElementById("bg-color").value = settings.colors.bgColor;
-    document.getElementById("text-color").value = settings.colors.textColor;
-    document.getElementById("button-color").value = settings.colors.buttonColor;
+    if (bgColor) bgColor.value = settings.colors.bgColor;
+    if (textColor) textColor.value = settings.colors.textColor;
+    if (buttonColor) buttonColor.value = settings.colors.buttonColor;
   }
 
-  // 🔁 Live toggle logic
+  // Toggle custom color pickers
   function toggleCustomColors() {
     if (themeSelect.value === "custom") {
       customColorSection.style.display = "block";
@@ -24,7 +32,7 @@ window.addEventListener("DOMContentLoaded", () => {
   }
 
   if (themeSelect && customColorSection) {
-    toggleCustomColors(); // on load
-    themeSelect.addEventListener("change", toggleCustomColors); // on change
+    toggleCustomColors();
+    themeSelect.addEventListener("change", toggleCustomColors);
   }
 });
