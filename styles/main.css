@@ -1,0 +1,61 @@
+/* Base reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background: url('../assets/backgrounds/starry-night.jpg') no-repeat center center fixed;
+  background-size: cover;
+  color: white;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px;
+}
+
+#quote-container {
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  max-width: 600px;
+  text-align: center;
+  font-size: 1.5rem;
+  line-height: 1.6;
+}
+
+#controls button {
+  vertical-align: middle;
+  margin-right: 6px;
+  margin: 5px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+#generate-btn {
+  background-color: #4CAF50;
+  color: white;
+}
+
+#copy-btn {
+  background-color: #2196F3;
+  color: white;
+}
+
+#settings-btn {
+  background-color: #f44336;
+  color: white;
+}
+
+#controls button:hover {
+  opacity: 0.9;
+}
