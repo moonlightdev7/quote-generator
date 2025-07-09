@@ -1,97 +1,11 @@
-/* themes.css */
-
-/* Default fallback */
-body.default {
-  background-color: #1a1a1a;
-  color: white;
-}
-
-/* Soft Girlie Theme */
 body.soft-girlie {
   background-color: #ffe6f0;
   color: #6b184e;
 }
 
-/* Midnight Black Theme */
 body.midnight-black {
-  background-color: #0f0f0f;
-  color: #f0f0f0;
-}
-
-/* Forest Calm */
-body.forest-calm {
-  background-color: #1b3a2c;
-  color: #d0f0c0;
-}
-
-/* Ocean Breeze */
-body.ocean-breeze {
-  background-color: #cceeff;
-  color: #003344;
-}
-
-/* Masculine Sleek */
-body.masculine-sleek {
-  background-color: #1a1a2e;
-  color: #eaeaea;
-}
-
-/* Energetic Orange */
-body.energetic-orange {
-  background-color: #ffcc80;
-  color: #4e2600;
-}
-
-/* Minimal White */
-body.minimal-white {
-  background-color: #ffffff;
-  color: #111111;
-}
-
-/* Sakura Blossom */
-body.sakura-blossom {
-  background-color: #fcd6e5;
-  color: #8b0048;
-}
-
-/* Night Sky */
-body.night-sky {
-  background-color: #0b1d3a;
-  color: #a6c9ff;
-}
-
-/* Desert Sand */
-body.desert-sand {
-  background-color: #f4e2d8;
-  color: #6b4c3b;
-}
-
-/* Lavender Mist */
-body.lavender-mist {
-  background-color: #e6e6fa;
-  color: #4b0082;
-}
-
-/* Blue Ice */
-body.blue-ice {
-  background-color: #e0f7fa;
-  color: #004d4d;
-}
-
-/* Rose Gold */
-body.rose-gold {
-  background-color: #f8e1e7;
-  color: #b76e79;
-}
-
-/* Cyber Neon */
-body.cyber-neon {
   background-color: #000000;
-  color: #39ff14;
+  color: #ffffff;
 }
 
-/* Earth Tones */
-body.earth-tones {
-  background-color: #ede0d4;
-  color: #3e2723;
-}
+/* Add more themes if needed */

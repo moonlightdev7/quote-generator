@@ -1,4 +1,3 @@
-// Quote array
 const quotes = [
   "Believe you can and you're halfway there.",
   "The only way to do great work is to love what you do.",
@@ -51,22 +50,13 @@ const quoteEl = document.getElementById("quote");
 const generateBtn = document.getElementById("generate-btn");
 const copyBtn = document.getElementById("copy-btn");
 
-// Generate a random quote
-function generateQuote() {
+generateBtn.addEventListener("click", () => {
   const randomIndex = Math.floor(Math.random() * quotes.length);
   quoteEl.textContent = quotes[randomIndex];
-}
+});
 
-// Copy quote to clipboard
-function copyQuote() {
-  const text = quoteEl.textContent;
-  navigator.clipboard.writeText(text).then(() => {
-    alert("Quote copied to clipboard!");
-  }).catch(err => {
-    console.error("Failed to copy: ", err);
+copyBtn.addEventListener("click", () => {
+  navigator.clipboard.writeText(quoteEl.textContent).then(() => {
+    alert("Quote copied!");
   });
-}
-
-// Event listeners
-generateBtn.addEventListener("click", generateQuote);
-copyBtn.addEventListener("click", copyQuote);
+});

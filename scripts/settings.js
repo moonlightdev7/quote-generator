@@ -1,44 +1,28 @@
-// Theme and customization handlers
-const themeSelect = document.getElementById("theme-select");
-const bgColorInput = document.getElementById("bg-color");
-const textColorInput = document.getElementById("text-color");
-const buttonColorInput = document.getElementById("button-color");
-const bgUpload = document.getElementById("bg-upload");
-const defaultBgSelect = document.getElementById("default-bg");
 const applyBtn = document.getElementById("apply-btn");
 
 applyBtn.addEventListener("click", () => {
-  const selectedTheme = themeSelect.value;
-  const customColors = {
-    bgColor: bgColorInput.value,
-    textColor: textColorInput.value,
-    buttonColor: buttonColorInput.value
+  const theme = document.getElementById("theme-select").value;
+  const colors = {
+    bgColor: document.getElementById("bg-color").value,
+    textColor: document.getElementById("text-color").value,
+    buttonColor: document.getElementById("button-color").value
   };
 
-  const uploadedFile = bgUpload.files[0];
-  let backgroundImage = "";
-
-  if (uploadedFile) {
+  const file = document.getElementById("bg-upload").files[0];
+  if (file) {
     const reader = new FileReader();
-    reader.onload = function (e) {
-      backgroundImage = e.target.result;
-      saveSettings(selectedTheme, customColors, backgroundImage);
+    reader.onload = (e) => {
+      saveSettings(theme, colors, e.target.result);
     };
-    reader.readAsDataURL(uploadedFile);
+    reader.readAsDataURL(file);
   } else {
-    const defaultBackground = defaultBgSelect.value;
-    backgroundImage = `../assets/backgrounds/${defaultBackground}.jpg`;
-    saveSettings(selectedTheme, customColors, backgroundImage);
+    const selected = document.getElementById("default-bg").value;
+    saveSettings(theme, colors, `assets/backgrounds/${selected}.jpg`);
   }
 });
 
 function saveSettings(theme, colors, backgroundImage) {
-  const settings = {
-    theme,
-    colors,
-    backgroundImage
-  };
-
+  const settings = { theme, colors, backgroundImage };
   localStorage.setItem("quoteAppSettings", JSON.stringify(settings));
-  alert("Settings applied! Go back to see the changes.");
+  alert("Settings applied!");
 }
