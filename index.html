@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Motivational Quote Generator</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>🌙 Your Daily Dose of Motivation</h1>
+    <div class="quote-box">
+      <p id="quote">Click the button for a quote</p>
+    </div>
+    <button id="new-quote">Inspire Me</button>
+    <button id="copy-quote">Copy Quote</button>
+    <div class="theme-selector">
+        <label for="theme">Choose Theme:</label>
+        <select id="theme">
+          <option value="moonlight">Moonlight Vibes</option>
+          <option value="dark">Dark Mode</option>
+          <option value="soft">Soft Girlie</option>
+          <option value="black">Midnight Black</option>
+          <option value="sunrise">Sunrise Serenity</option>
+          <option value="forest">Forest Calm</option>
+          <option value="lavender">Lavender Mist</option>
+          <option value="neon">Cyber Neon</option>
+          <option value="sand">Sand & Sky</option>
+          <option value="cream">Minimal Cream</option>
+        </select>
+      </div>
+      <button id="surprise-theme">Surprise Me!</button>      
+      <div class="reminder-toggle">
+        <label for="daily-reminder">Daily Reminder:</label>
+        <input type="checkbox" id="daily-reminder">
+      </div>
+      <small>Keep tab open to receive daily quotes 💬</small>      
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
