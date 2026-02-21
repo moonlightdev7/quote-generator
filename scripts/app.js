@@ -50,13 +50,33 @@ const quoteEl = document.getElementById("quote");
 const generateBtn = document.getElementById("generate-btn");
 const copyBtn = document.getElementById("copy-btn");
 
-generateBtn.addEventListener("click", () => {
+generateBtn?.addEventListener("click", () => {
   const randomIndex = Math.floor(Math.random() * quotes.length);
-  quoteEl.textContent = quotes[randomIndex];
+  if (quoteEl) quoteEl.textContent = quotes[randomIndex];
 });
 
-copyBtn.addEventListener("click", () => {
-  navigator.clipboard.writeText(quoteEl.textContent).then(() => {
-    alert("Quote copied!");
-  });
+copyBtn?.addEventListener("click", async () => {
+  const text = quoteEl?.textContent || "";
+  if (!text) return;
+
+  try {
+    await navigator.clipboard.writeText(text);
+    // ✅ silent success (no alert)
+  } catch {
+    // Fallback for older browsers or blocked clipboard permissions
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.style.position = "fixed";
+    ta.style.left = "-9999px";
+    ta.style.top = "0";
+    document.body.appendChild(ta);
+    ta.focus();
+    ta.select();
+    try {
+      document.execCommand("copy");
+    } catch {
+      // still silent if it fails
+    }
+    ta.remove();
+  }
 });

@@ -8,64 +8,30 @@
   <link rel="stylesheet" href="styles/main.css" />
   <link rel="stylesheet" href="styles/themes.css" />
   <link rel="stylesheet" href="styles/premium-themes.css" />
-
-  <style>
-    :root {
-      --bg-color: white;
-      --text-color: black;
-      --button-color: #6200ee;
-      --quote-bg: rgba(0, 0, 0, 0.6);
-
-      /* Settings panel */
-      --panel-bg: rgba(255, 255, 255, 0.95);
-      --panel-text: #222;
-      --panel-border: rgba(0, 0, 0, 0.10);
-    }
-
-    body.custom {
-      --bg-color: var(--custom-bg-color);
-      --text-color: var(--custom-text-color);
-      --button-color: var(--custom-button-color);
-      --quote-bg: var(--custom-quote-bg, rgba(0, 0, 0, 0.6));
-    }
-
-    body.dark-mode {
-      --panel-bg: rgba(18, 18, 18, 0.92);
-      --panel-text: #f2f2f2;
-      --panel-border: rgba(255, 255, 255, 0.14);
-    }
-
-    body {
-      background-color: var(--bg-color);
-      color: var(--text-color);
-    }
-  </style>
 </head>
 
 <body>
-  <!-- ✅ Top Tabs -->
   <nav class="top-tabs">
     <a href="index.html">Generator</a>
     <a href="shop.html">Shop</a>
-    <a href="settings.html">Settings</a>
+    <a href="settings.html" class="active">Settings</a>
   </nav>
 
   <div id="settings-container">
-    <!-- ✅ Sun/Moon toggle (top-right corner) -->
     <button id="mode-toggle" type="button" aria-label="Toggle dark mode" title="Toggle theme">
       <span id="mode-icon">☀️</span>
     </button>
 
     <h1>Settings</h1>
 
-    <!-- ✅ Tabs inside Settings -->
     <div class="settings-tabs" role="tablist" aria-label="Settings tabs">
       <button class="settings-tab active" data-tab="theme" type="button">Theme</button>
       <button class="settings-tab" data-tab="background" type="button">Background</button>
+      <button class="settings-tab" data-tab="decorations" type="button">Decorations</button>
       <button class="settings-tab" data-tab="account" type="button">Account</button>
     </div>
 
-    <!-- ✅ THEME TAB -->
+    <!-- THEME TAB -->
     <div class="settings-panel active" data-panel="theme" role="tabpanel">
       <section>
         <label for="theme-select">Preset Theme:</label>
@@ -99,9 +65,13 @@
         <label for="button-color">Button Color:</label>
         <input type="color" id="button-color" />
       </section>
+
+      <section style="margin-top: 10px;">
+        <button id="reset-theme" type="button">Reset Theme</button>
+      </section>
     </div>
 
-    <!-- ✅ BACKGROUND TAB -->
+    <!-- BACKGROUND TAB -->
     <div class="settings-panel" data-panel="background" role="tabpanel">
       <section>
         <label for="bg-upload">Upload Background Image/GIF:</label>
@@ -117,10 +87,35 @@
         <p style="opacity:0.75; font-size:0.95rem; margin-top:6px;">
           Upload overrides the dropdown.
         </p>
+
+        <div style="margin-top: 10px;">
+          <button id="reset-background" type="button">Reset Background</button>
+        </div>
       </section>
     </div>
 
-    <!-- ✅ ACCOUNT TAB -->
+    <!-- DECORATIONS TAB -->
+    <div class="settings-panel" data-panel="decorations" role="tabpanel">
+      <section>
+        <label for="deco-select">Decoration:</label>
+        <select id="deco-select">
+          <option value="none">None</option>
+          <option value="leafy-frame">Leafy Vine Frame</option>
+        </select>
+      </section>
+
+      <section id="deco-controls">
+        <label for="deco-opacity">Opacity</label>
+        <input type="range" id="deco-opacity" min="0.10" max="1" step="0.01" value="0.95" />
+
+        <label for="deco-thickness">Frame thickness (px)</label>
+        <input type="range" id="deco-thickness" min="8" max="240" step="1" value="52" />
+
+        <button id="reset-decorations" type="button">Reset Decorations</button>
+      </section>
+    </div>
+
+    <!-- ACCOUNT TAB -->
     <div class="settings-panel" data-panel="account" role="tabpanel">
       <section>
         <label for="display-name">Display name (optional):</label>
@@ -136,11 +131,12 @@
 
     <div class="button-group">
       <button id="apply-btn" type="button">Apply Changes</button>
-      <button id="reset-btn" type="button" style="background-color:#999;">Reset</button>
     </div>
   </div>
 
   <script src="scripts/themes.js"></script>
+  <script src="scripts/premiumThemes.js"></script>
+  <script src="scripts/decorations.js"></script>
   <script src="scripts/settings.js"></script>
   <script src="scripts/nav.js"></script>
 </body>

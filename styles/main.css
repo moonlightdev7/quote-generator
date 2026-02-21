@@ -1,3 +1,5 @@
+/* styles/main.css */
+
 * {
   margin: 0;
   padding: 0;
@@ -16,6 +18,27 @@
   --panel-bg: rgba(255, 255, 255, 0.95);
   --panel-text: #222;
   --panel-border: rgba(0, 0, 0, 0.10);
+
+  /* =========================================================
+     Leafy Frame (EDGES ONLY) (set by JS in decorations.js)
+     ========================================================= */
+  --frame-inset: clamp(6px, 1vw, 12px);
+  --frame-thickness: clamp(28px, 3.8vw, 70px);
+  --frame-opacity: 0.95;
+  --frame-edge-tile: clamp(160px, 10vw, 280px);
+
+  --frame-edge-top: none;
+  --frame-edge-right: none;
+  --frame-edge-bottom: none;
+  --frame-edge-left: none;
+}
+
+/* ✅ Dark mode vars */
+body.dark-mode {
+  --panel-bg: rgba(18, 18, 18, 0.92);
+  --panel-text: #f2f2f2;
+  --panel-border: rgba(255, 255, 255, 0.14);
+  --quote-outline: rgba(255, 255, 255, 0.20);
 }
 
 body {
@@ -25,8 +48,10 @@ body {
   align-items: center;
   flex-direction: column;
   text-align: center;
-  padding: 80px 20px 110px; /* top for tabs, bottom for controls */
-  transition: all 0.3s ease-in-out;
+
+  padding: 80px 20px 110px; /* room for tabs + controls */
+  transition: background-color 0.25s ease, color 0.25s ease;
+
   background-color: var(--bg-color, #ffffff);
   color: var(--text-color, #111111);
 }
@@ -45,12 +70,13 @@ body {
   background: rgba(255, 255, 255, 0.22);
   border: 1px solid rgba(255, 255, 255, 0.28);
   backdrop-filter: blur(12px);
+
   z-index: 50;
 }
 
 .top-tabs a {
   text-decoration: none;
-  font-weight: 800;
+  font-weight: 900;
   padding: 10px 16px;
   border-radius: 999px;
 
@@ -73,7 +99,7 @@ body {
   background-color: var(--quote-bg, rgba(0, 0, 0, 0.6));
   color: inherit;
   padding: 30px;
-  border-radius: 10px;
+  border-radius: 14px;
   font-size: 1.5rem;
   max-width: 650px;
   margin-bottom: 20px;
@@ -97,7 +123,7 @@ body {
   background-color: var(--button-color, #6200ee);
   color: var(--text-color, #ffffff);
   padding: 10px 20px;
-  font-weight: bold;
+  font-weight: 900;
   border: none;
   border-radius: 12px;
   cursor: pointer;
@@ -108,11 +134,6 @@ body {
 }
 
 #controls button:hover { transform: scale(1.05); }
-
-#controls img {
-  vertical-align: middle;
-  margin-right: 6px;
-}
 
 /* ✅ Settings container */
 #settings-container {
@@ -176,11 +197,12 @@ body.dark-mode #settings-container section {
 
 #settings-container label {
   display: block;
-  font-weight: 800;
+  font-weight: 900;
   margin: 10px 0 6px;
   color: inherit;
 }
 
+/* ✅ Form controls (NOT range sliders) */
 #settings-container select,
 #settings-container input[type="color"],
 #settings-container input[type="file"],
@@ -194,12 +216,76 @@ body.dark-mode #settings-container section {
   color: #111;
 }
 
+/* ✅ Dark mode form controls (NOT range sliders) */
 body.dark-mode #settings-container select,
 body.dark-mode #settings-container input[type="color"],
 body.dark-mode #settings-container input[type="file"],
 body.dark-mode #settings-container input[type="text"] {
   background-color: rgba(255,255,255,0.10);
   color: #f2f2f2;
+  border-color: rgba(255,255,255,0.20);
+}
+
+/* =========================================================
+   ✅ Range slider polish (hits ends properly + consistent)
+   ========================================================= */
+#settings-container input[type="range"] {
+  width: 100%;
+  padding: 0;
+  margin: 10px 0 18px;
+  background: transparent;
+  border: none;
+  -webkit-appearance: none;
+  appearance: none;
+  touch-action: pan-y;
+}
+
+/* Track (Chrome/Safari/Edge) */
+#settings-container input[type="range"]::-webkit-slider-runnable-track {
+  height: 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.55);
+  border: 1px solid rgba(0,0,0,0.18);
+}
+
+/* Thumb (Chrome/Safari/Edge) */
+#settings-container input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 24px;
+  height: 24px;
+  border-radius: 999px;
+  background: var(--button-color);
+  border: 2px solid rgba(255,255,255,0.9);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.28);
+  margin-top: -7px;
+}
+
+/* Track (Firefox) */
+#settings-container input[type="range"]::-moz-range-track {
+  height: 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.55);
+  border: 1px solid rgba(0,0,0,0.18);
+}
+
+/* Thumb (Firefox) */
+#settings-container input[type="range"]::-moz-range-thumb {
+  width: 24px;
+  height: 24px;
+  border-radius: 999px;
+  background: var(--button-color);
+  border: 2px solid rgba(255,255,255,0.9);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.28);
+}
+
+/* Dark mode track */
+body.dark-mode #settings-container input[type="range"]::-webkit-slider-runnable-track {
+  background: rgba(255,255,255,0.10);
+  border-color: rgba(255,255,255,0.20);
+}
+body.dark-mode #settings-container input[type="range"]::-moz-range-track {
+  background: rgba(255,255,255,0.10);
   border-color: rgba(255,255,255,0.20);
 }
 
@@ -277,6 +363,15 @@ body.dark-mode .settings-tab.active {
   margin-top: 16px;
 }
 
+.shop-section-title {
+  grid-column: 1 / -1;
+  text-align: left;
+  font-weight: 900;
+  font-size: 1.15rem;
+  opacity: 0.9;
+  margin-top: 6px;
+}
+
 .shop-card {
   border-radius: 18px;
   padding: 14px;
@@ -297,6 +392,21 @@ body.dark-mode .shop-card {
 .shop-card h3 { margin-bottom: 6px; }
 .shop-card p { opacity: 0.85; margin-bottom: 10px; }
 
+.shop-card .badge {
+  display: inline-block;
+  margin-left: 8px;
+  padding: 3px 10px;
+  font-size: 0.75rem;
+  border-radius: 999px;
+  background: rgba(0,0,0,0.08);
+  border: 1px solid rgba(0,0,0,0.14);
+}
+
+body.dark-mode .shop-card .badge {
+  background: rgba(255,255,255,0.10);
+  border-color: rgba(255,255,255,0.16);
+}
+
 .shop-card .row {
   display: flex;
   gap: 8px;
@@ -311,4 +421,78 @@ body.dark-mode .shop-card {
   border-radius: 12px;
   font-weight: 900;
   cursor: pointer;
+}
+
+/* =========================================================
+   Leafy frame overlay (EDGES ONLY) — UNIFORM SCALING
+   ========================================================= */
+
+#deco-layer {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+#deco-frame {
+  position: absolute;
+  inset: 0;
+  padding: var(--frame-inset);
+}
+
+#deco-frame .edge {
+  position: absolute;
+  opacity: var(--frame-opacity);
+  z-index: 1;
+  background-position: center;
+}
+
+/* Top/Bottom: repeat-x, scale both axes with thickness + tile */
+#deco-frame .edge.top,
+#deco-frame .edge.bottom {
+  height: var(--frame-thickness);
+  left: 0;
+  right: 0;
+
+  background-repeat: repeat-x;
+
+  /* ✅ uniform scaling: tile length AND thickness change together */
+  background-size: var(--frame-edge-tile) var(--frame-thickness);
+}
+
+#deco-frame .edge.top {
+  top: 0;
+  background-image: var(--frame-edge-top);
+  background-position: top center;
+}
+
+#deco-frame .edge.bottom {
+  bottom: 0;
+  background-image: var(--frame-edge-bottom);
+  background-position: bottom center;
+}
+
+/* Left/Right: repeat-y, uniform scaling */
+#deco-frame .edge.left,
+#deco-frame .edge.right {
+  width: var(--frame-thickness);
+  top: 0;
+  bottom: 0;
+
+  background-repeat: repeat-y;
+
+  /* ✅ uniform scaling */
+  background-size: var(--frame-thickness) var(--frame-edge-tile);
+}
+
+#deco-frame .edge.left {
+  left: 0;
+  background-image: var(--frame-edge-left);
+  background-position: center left;
+}
+
+#deco-frame .edge.right {
+  right: 0;
+  background-image: var(--frame-edge-right);
+  background-position: center right;
 }
