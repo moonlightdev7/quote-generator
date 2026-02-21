@@ -3,15 +3,23 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Customize Theme</title>
+  <title>Settings</title>
+
   <link rel="stylesheet" href="styles/main.css" />
   <link rel="stylesheet" href="styles/themes.css" />
+  <link rel="stylesheet" href="styles/premium-themes.css" />
+
   <style>
     :root {
       --bg-color: white;
       --text-color: black;
       --button-color: #6200ee;
       --quote-bg: rgba(0, 0, 0, 0.6);
+
+      /* Settings panel */
+      --panel-bg: rgba(255, 255, 255, 0.95);
+      --panel-text: #222;
+      --panel-border: rgba(0, 0, 0, 0.10);
     }
 
     body.custom {
@@ -21,44 +29,67 @@
       --quote-bg: var(--custom-quote-bg, rgba(0, 0, 0, 0.6));
     }
 
+    body.dark-mode {
+      --panel-bg: rgba(18, 18, 18, 0.92);
+      --panel-text: #f2f2f2;
+      --panel-border: rgba(255, 255, 255, 0.14);
+    }
+
     body {
       background-color: var(--bg-color);
       color: var(--text-color);
     }
-
-    #settings-container button {
-      background-color: var(--button-color);
-      color: white;
-    }
   </style>
 </head>
+
 <body>
+  <!-- ✅ Top Tabs -->
+  <nav class="top-tabs">
+    <a href="index.html">Generator</a>
+    <a href="shop.html">Shop</a>
+    <a href="settings.html">Settings</a>
+  </nav>
+
   <div id="settings-container">
-    <h1>Customize Your Theme</h1>
+    <!-- ✅ Sun/Moon toggle (top-right corner) -->
+    <button id="mode-toggle" type="button" aria-label="Toggle dark mode" title="Toggle theme">
+      <span id="mode-icon">☀️</span>
+    </button>
 
-    <section>
-      <label for="theme-select">Preset Theme:</label>
-      <select id="theme-select">
-        <option value="default">Default</option>
-        <option value="soft-girlie">Soft Girlie</option>
-        <option value="midnight-black">Midnight Black</option>
-        <option value="lavender-dreams">Lavender Dreams</option>
-        <option value="mint-cream">Mint Cream</option>
-        <option value="peachy-vibes">Peachy Vibes</option>
-        <option value="sky-blue-bliss">Sky Blue Bliss</option>
-        <option value="rose-quartz">Rose Quartz</option>
-        <option value="ocean-deep">Ocean Deep</option>
-        <option value="vanilla-cream">Vanilla Cream</option>
-        <option value="blush-pink">Blush Pink</option>
-        <option value="lemon-sorbet">Lemon Sorbet</option>
-        <option value="dusty-rose">Dusty Rose</option>
-        <option value="cool-grey">Cool Grey</option>
-        <option value="mauve-magic">Mauve Magic</option>
-        <option value="custom">Custom</option>
-      </select>
-    </section>
+    <h1>Settings</h1>
 
-    <section id="custom-color-section">
+    <!-- ✅ Tabs inside Settings -->
+    <div class="settings-tabs" role="tablist" aria-label="Settings tabs">
+      <button class="settings-tab active" data-tab="theme" type="button">Theme</button>
+      <button class="settings-tab" data-tab="background" type="button">Background</button>
+      <button class="settings-tab" data-tab="account" type="button">Account</button>
+    </div>
+
+    <!-- ✅ THEME TAB -->
+    <div class="settings-panel active" data-panel="theme" role="tabpanel">
+      <section>
+        <label for="theme-select">Preset Theme:</label>
+        <select id="theme-select">
+          <option value="default">Default</option>
+          <option value="soft-girlie">Soft Girlie</option>
+          <option value="midnight-black">Midnight Black</option>
+          <option value="lavender-dreams">Lavender Dreams</option>
+          <option value="mint-cream">Mint Cream</option>
+          <option value="peachy-vibes">Peachy Vibes</option>
+          <option value="sky-blue-bliss">Sky Blue Bliss</option>
+          <option value="rose-quartz">Rose Quartz</option>
+          <option value="ocean-deep">Ocean Deep</option>
+          <option value="vanilla-cream">Vanilla Cream</option>
+          <option value="blush-pink">Blush Pink</option>
+          <option value="lemon-sorbet">Lemon Sorbet</option>
+          <option value="dusty-rose">Dusty Rose</option>
+          <option value="cool-grey">Cool Grey</option>
+          <option value="mauve-magic">Mauve Magic</option>
+          <option value="custom">Custom</option>
+        </select>
+      </section>
+
+      <section id="custom-color-section">
         <label for="bg-color">Background Color:</label>
         <input type="color" id="bg-color" />
 
@@ -67,26 +98,50 @@
 
         <label for="button-color">Button Color:</label>
         <input type="color" id="button-color" />
-    </section>
+      </section>
+    </div>
 
-    <section>
-      <label for="bg-upload">Upload Background Image/GIF:</label>
-      <input type="file" id="bg-upload" accept="image/*" />
+    <!-- ✅ BACKGROUND TAB -->
+    <div class="settings-panel" data-panel="background" role="tabpanel">
+      <section>
+        <label for="bg-upload">Upload Background Image/GIF:</label>
+        <input type="file" id="bg-upload" accept="image/*" />
 
-      <label for="default-bg">Or use a default background:</label>
-      <select id="default-bg">
-        <option value="none">None</option>
-        <option value="Starry Night">Starry Night</option>
-        <option value="Soft Bokeh">Soft Bokeh</option>
-      </select>
-    </section>
+        <label for="default-bg">Or use a default background:</label>
+        <select id="default-bg">
+          <option value="none">None</option>
+          <option value="Starry Night">Starry Night</option>
+          <option value="Soft Bokeh">Soft Bokeh</option>
+        </select>
 
-    <button id="apply-btn">Apply Settings</button>
-    <button onclick="location.href='index.html'">Back</button>
-    <button id="reset-btn" style="background-color: #999;">Reset to Default</button>
+        <p style="opacity:0.75; font-size:0.95rem; margin-top:6px;">
+          Upload overrides the dropdown.
+        </p>
+      </section>
+    </div>
+
+    <!-- ✅ ACCOUNT TAB -->
+    <div class="settings-panel" data-panel="account" role="tabpanel">
+      <section>
+        <label for="display-name">Display name (optional):</label>
+        <input type="text" id="display-name" placeholder="e.g. Aliyah" />
+      </section>
+
+      <section>
+        <p style="opacity:0.8; font-size:0.95rem; line-height:1.4;">
+          Account features (sign-in / purchases / cloud sync) later.
+        </p>
+      </section>
+    </div>
+
+    <div class="button-group">
+      <button id="apply-btn" type="button">Apply Changes</button>
+      <button id="reset-btn" type="button" style="background-color:#999;">Reset</button>
+    </div>
   </div>
 
   <script src="scripts/themes.js"></script>
   <script src="scripts/settings.js"></script>
+  <script src="scripts/nav.js"></script>
 </body>
 </html>

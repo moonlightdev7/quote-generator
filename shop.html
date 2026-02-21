@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Shop</title>
+
+  <link rel="stylesheet" href="styles/main.css" />
+  <link rel="stylesheet" href="styles/themes.css" />
+  <link rel="stylesheet" href="styles/premium-themes.css" />
+</head>
+
+<body>
+  <!-- ✅ Top Tabs -->
+  <nav class="top-tabs">
+    <a href="index.html">Generator</a>
+    <a href="shop.html">Shop</a>
+    <a href="settings.html">Settings</a>
+  </nav>
+
+  <div class="shop-wrap">
+    <h1 style="text-align:center; margin-bottom:10px;">Shop</h1>
+    <p style="text-align:center; opacity:0.85;">Theme packs coming soon ✨</p>
+
+    <div class="shop-grid" id="shop-grid">
+      <div class="shop-card">
+        <h3>Cherry Blossom Pink</h3>
+        <p>Soft pink background + cute blossom border vibe.</p>
+        <div class="row">
+          <button type="button">Preview</button>
+          <button type="button">Buy</button>
+        </div>
+      </div>
+
+      <div class="shop-card">
+        <h3>Leafy Vines Green</h3>
+        <p>Green mood + vine border aesthetic.</p>
+        <div class="row">
+          <button type="button">Preview</button>
+          <button type="button">Buy</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="scripts/premiumThemes.js"></script>
+
+  <script>
+    // ✅ Match Home: theme + background + dark mode + premium theme
+    const settings = JSON.parse(localStorage.getItem("quoteAppSettings"));
+
+    if (settings) {
+      document.body.style.backgroundImage = settings.backgroundImage
+        ? `url('${settings.backgroundImage}')`
+        : "none";
+      document.body.style.backgroundSize = "cover";
+      document.body.style.backgroundPosition = "center";
+      document.body.style.backgroundRepeat = "no-repeat";
+
+      document.body.className = "";
+
+      if (settings.theme && settings.theme !== "default") {
+        document.body.classList.add(settings.theme);
+      }
+
+      if (settings.colors && settings.theme === "custom") {
+        document.body.classList.add("custom");
+        document.documentElement.style.setProperty("--custom-bg-color", settings.colors.bgColor);
+        document.documentElement.style.setProperty("--custom-text-color", settings.colors.textColor);
+        document.documentElement.style.setProperty("--custom-button-color", settings.colors.buttonColor);
+        document.documentElement.style.setProperty("--custom-quote-bg", "rgba(0, 0, 0, 0.6)");
+      }
+
+      document.body.classList.toggle("dark-mode", !!settings.darkMode);
+
+      if (settings.theme === "premium" && settings.premiumThemeId && typeof applyPremiumTheme === "function") {
+        applyPremiumTheme(settings.premiumThemeId);
+      }
+    }
+  </script>
+
+  <script src="scripts/nav.js"></script>
+</body>
+</html>

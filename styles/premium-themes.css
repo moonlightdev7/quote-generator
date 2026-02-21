@@ -1,0 +1,24 @@
+/* ✅ Premium Theme Packs (visual styles) */
+
+body.premium-pink-cherry {
+  --bg-color: #ffd6e8;
+  --text-color: #3b1b2b;
+  --button-color: #ff4fa3;
+  --quote-bg: rgba(255, 255, 255, 0.65);
+  --quote-outline: rgba(255, 79, 163, 0.45);
+}
+
+body.premium-green-vines {
+  --bg-color: #d8ffe6;
+  --text-color: #0f2b1a;
+  --button-color: #1aa65b;
+  --quote-bg: rgba(255, 255, 255, 0.65);
+  --quote-outline: rgba(26, 166, 91, 0.45);
+}
+
+/* Optional: fake “decorations” using subtle borders (fast + pretty)
+   Later you can replace with actual PNG overlays if you want */
+body.premium-pink-cherry #quote-container,
+body.premium-green-vines #quote-container {
+  box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+}
